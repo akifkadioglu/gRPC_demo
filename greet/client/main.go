@@ -22,4 +22,6 @@ func main() {
 		log.Fatalf("%v", err)
 	}
 	defer conn.Close()
+	c := pb.NewGreetServiceClient(conn)
+	doGreet(c)
 }

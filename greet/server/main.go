@@ -24,6 +24,7 @@ func main() {
 	}
 	log.Printf("listening at %s", addr)
 	s := grpc.NewServer()
+	pb.RegisterGreetServiceServer(s, &Server{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("%v", err)
 	}
